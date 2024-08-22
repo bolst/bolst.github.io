@@ -171,7 +171,7 @@
             <Animate Anchor="#b-animate" @ref="projectAnimRefs[11]" Auto="false">
                 <MudPaper Elevation="2" Class="pa-4 d-flex justify-center" Style="min-height: 300px;">
                     <MudGrid>
-                        <MudItem Class="d-flex justify-center" xs="5">
+                        <MudItem Class="d-flex justify-center" xs="12" sm="5">
                             <MudLink Class="d-flex align-self-center" Href="https://dotnet.microsoft.com/en-us/"
                                 Target="blank">
                                 <MudImage Class="rounded-lg" Elevation="5"
@@ -179,7 +179,7 @@
                                     Fluid="true" />
                             </MudLink>
                         </MudItem>
-                        <MudItem Class="d-flex justify-center" xs="7">
+                        <MudItem Class="d-flex justify-center" xs="12" sm="7">
                             <MudText Class="flex-auto d-flex py-8 align-self-center" Color="Color.Tertiary">
                                 I have been playing hockey as a goaltender since I was 10 years old. I played 4 years of
                                 junior
@@ -196,16 +196,23 @@
     <MudItem xs="12" sm="4" id="meboltoncup">
         <div id="#b-animate">
             <Animate Anchor="#b-animate" @ref="projectAnimRefs[12]" Auto="false">
-                <MudPaper Elevation="2" Class="pa-4 d-flex flex-grow-1 gap-4" Style="min-height: 300px;">
-                    <MudText Class="flex-auto d-flex py-8 align-self-center" Color="Color.Tertiary">
-                        My brother and I run an annual hockey tournament "Bolton Cup". Last time involved over
-                        60 players with $1000+ worth of prizes and multiple sponsorships. Players registered/payed and
-                        viewed
-                        their game stats through the website we developed.
-                    </MudText>
-                    <MudLink Class="flex-none d-flex align-self-center" Href="https://boltoncup.ca" Target="blank">
-                        <MudImage Class="rounded-lg" Src="https://boltoncup.ca/logo.png" style="height: 80px;" />
-                    </MudLink>
+                <MudPaper Elevation="2" Class="pa-4 d-flex justify-center" Style="min-height: 300px;">
+                    <MudGrid>
+                        <MudItem Class="d-flex justify-center" xs="12" sm="8">
+                            <MudText Class="flex-auto d-flex align-self-center" Color="Color.Tertiary">
+                                My brother and I run an annual hockey tournament "Bolton Cup". Last time involved over
+                                60 players with $1000+ worth of prizes and multiple sponsorships. Players
+                                registered/payed and
+                                viewed their game stats through the website we developed.
+                            </MudText>
+                        </MudItem>
+                        <MudItem Class="d-flex justify-center" xs="12" sm="4">
+                            <MudLink Class="d-flex align-self-center" Href="https://boltoncup.ca" Target="blank">
+                                <MudImage Class="rounded-lg px-20 px-sm-0" Src="https://boltoncup.ca/logo.png"
+                                    Fluid="true" />
+                            </MudLink>
+                        </MudItem>
+                    </MudGrid>
                 </MudPaper>
             </Animate>
         </div>
@@ -225,7 +232,8 @@
                         <MudText Typo="Typo.h2" Color="Color.Tertiary"><b>Get in touch</b></MudText>
                         <MudText Class="pt-4 d-none d-sm-flex" Typo="Typo.h5" Color="Color.Tertiary">Whether it's for
                             work or just to connect, you can find me at any of the handles to the right</MudText>
-                        <MudText Class="pt-4 d-flex d-sm-none" Typo="Typo.h5" Color="Color.Tertiary">Whether it's for
+                        <MudText Class="pt-4 px-4 d-flex d-sm-none" Typo="Typo.h5" Color="Color.Tertiary">Whether it's
+                            for
                             work or just to connect, you can find me at any of the handles below</MudText>
                     </MudItem>
                     <MudItem Class="d-flex justify-end" xs="12">
