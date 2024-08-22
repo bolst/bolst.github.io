@@ -38,9 +38,9 @@ namespace Portfolio.Api
 
                 return totalCommits;
             }
-            catch(Exception)
+            catch (Exception)
             {
-                return 513;
+                return 0;
             }
         }
     }
