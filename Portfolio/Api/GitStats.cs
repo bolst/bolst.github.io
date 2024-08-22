@@ -14,7 +14,7 @@ namespace Portfolio.Api
         GitHubClient github;
         private GitStats()
         {
-            github = new GitHubClient(new ProductHeaderValue("NBPortfolio", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version.ToString()));
+            github = new GitHubClient(new ProductHeaderValue("NBPortfolio", System.Reflection.Assembly.GetExecutingAssembly().GetName().Version!.ToString()));
         }
 
         public async Task<int> TotalCommits()
