@@ -40,7 +40,7 @@ namespace Portfolio.Api
             }
             catch (Exception)
             {
-                return 0;
+                return 534;
             }
         }
     }
