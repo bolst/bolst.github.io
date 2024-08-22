@@ -58,11 +58,11 @@
         {
             int j = i;
             <MudItem xs="12" sm="6" md="3" id=@($"project{j}")>
-                <div id="#b-animate">
-                    <Animate Anchor="#b-animate" @ref="projectAnimRefs[j]" Auto="false">
-                        <ProjectCard project="@project" />
-                    </Animate>
-                </div>
+                @* <div id="#b-animate">
+        <Animate Anchor="#b-animate" @ref="projectAnimRefs[j]" Auto="false"> *@
+                <ProjectCard project="@project" />
+                @* </Animate>
+        </div> *@
             </MudItem>
             i++;
         }
@@ -76,146 +76,140 @@
     <MudItem xs="12" sm="6">
         <MudGrid>
             <MudItem xs="12" id="mehome">
-                <div id="#b-animate">
-                    <Animate Anchor="#b-animate" @ref="projectAnimRefs[8]" Auto="false">
-                        <MudPaper Elevation="2" Class="pa-4 d-flex flex-grow-1 gap-4" Style="min-height: 200px;">
-                            <MudText Class="flex-auto d-flex py-8 align-self-center" Color="Color.Tertiary">
-                                I grew up and am currently based in Windsor, Ontario. I attend the University of Windsor
-                                and
-                                will be graduating in 2025 as a double major in physics and computer science.
-                            </MudText>
-                            <MudLink Class="flex-none d-flex align-self-center" Href="https://www.uwindsor.ca/"
-                                Target="blank">
-                                <MudImage Src="img/uwinpng.png" style="height: 80px;" />
-                            </MudLink>
-                        </MudPaper>
-                    </Animate>
-                </div>
+                @* <div id="#b-animate">
+                <Animate Anchor="#b-animate" @ref="projectAnimRefs[8]" Auto="false"> *@
+                <MudPaper Elevation="2" Class="pa-4 d-flex flex-grow-1 gap-4" Style="min-height: 200px;">
+                    <MudText Class="flex-auto d-flex py-8 align-self-center" Color="Color.Tertiary">
+                        I grew up and am currently based in Windsor, Ontario. I attend the University of Windsor
+                        and
+                        will be graduating in 2025 as a double major in physics and computer science.
+                    </MudText>
+                    <MudLink Class="flex-none d-flex align-self-center" Href="https://www.uwindsor.ca/" Target="blank">
+                        <MudImage Src="img/uwinpng.png" style="height: 80px;" />
+                    </MudLink>
+                </MudPaper>
+                @* </Animate>
+                </div> *@
             </MudItem>
             <MudItem xs="12" id="mecoding">
-                <div id="#b-animate">
-                    <Animate Anchor="#b-animate" @ref="projectAnimRefs[9]" Auto="false">
-                        <MudPaper Elevation="2" Class="pa-4 d-flex flex-grow-1 gap-4" Style="min-height: 200px;">
-                            <MudText Class="flex-auto d-flex py-8 align-self-center" Color="Color.Tertiary">
-                                I've been building web apps over the past year using the .NET environment. I've loved
-                                developing with Blazor and libraries such as Blazorise and MudBlazor.
-                            </MudText>
-                            <MudLink Class="flex-none d-flex align-self-center"
-                                Href="https://dotnet.microsoft.com/en-us/" Target="blank">
-                                <MudImage Src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Blazor.png"
-                                    style="height: 80px;" />
-                            </MudLink>
-                        </MudPaper>
-                    </Animate>
-                </div>
+                @* <div id="#b-animate">
+                <Animate Anchor="#b-animate" @ref="projectAnimRefs[9]" Auto="false"> *@
+                <MudPaper Elevation="2" Class="pa-4 d-flex flex-grow-1 gap-4" Style="min-height: 200px;">
+                    <MudText Class="flex-auto d-flex py-8 align-self-center" Color="Color.Tertiary">
+                        I've been building web apps over the past year using the .NET environment. I've loved
+                        developing with Blazor and libraries such as Blazorise and MudBlazor.
+                    </MudText>
+                    <MudLink Class="flex-none d-flex align-self-center" Href="https://dotnet.microsoft.com/en-us/"
+                        Target="blank">
+                        <MudImage Src="https://upload.wikimedia.org/wikipedia/commons/d/d0/Blazor.png"
+                            style="height: 80px;" />
+                    </MudLink>
+                </MudPaper>
+                @* </Animate>
+                </div> *@
             </MudItem>
         </MudGrid>
     </MudItem>
     <MudItem xs="12" sm="6" id="mephysics">
-        <div id="#b-animate">
-            <Animate Anchor="#b-animate" @ref="projectAnimRefs[10]" Auto="false">
-                <MudPaper Elevation="2" Class="pa-4" Style="min-height: 424px">
-                    <MudText Class="pb-8" Color="Color.Tertiary">
-                        I enjoy learning physics and have done some research in the field. Below are some research
-                        projects I've
-                        worked on.
+        @* <div id="#b-animate">
+        <Animate Anchor="#b-animate" @ref="projectAnimRefs[10]" Auto="false"> *@
+        <MudPaper Elevation="2" Class="pa-4" Style="min-height: 424px">
+            <MudText Class="pb-8" Color="Color.Tertiary">
+                I enjoy learning physics and have done some research in the field. Below are some research
+                projects I've
+                worked on.
+            </MudText>
+            <MudGrid Class="pl-4 pl-sm-0">
+                <MudItem Class="d-flex justify-center" xs="3">
+                    <MudLink Href="https://github.com/bolst/CISSCO" Target="blank">
+                        <MudImage Src="https://imagej.net/media/icons/imagej2-shadow.png" style="height: 80px;" />
+                    </MudLink>
+                </MudItem>
+                <MudItem Class="d-flex justify-center" xs="9">
+                    <MudText Class="flex-auto d-flex align-self-center" Color="Color.Tertiary">
+                        A plug-in for ImageJ which can quantify specific values around micro-bleeds such as
+                        magnetic
+                        moments
                     </MudText>
-                    <MudGrid Class="pl-4 pl-sm-0">
-                        <MudItem Class="d-flex justify-center" xs="3">
-                            <MudLink Href="https://github.com/bolst/CISSCO" Target="blank">
-                                <MudImage Src="https://imagej.net/media/icons/imagej2-shadow.png"
-                                    style="height: 80px;" />
-                            </MudLink>
-                        </MudItem>
-                        <MudItem Class="d-flex justify-center" xs="9">
-                            <MudText Class="flex-auto d-flex align-self-center" Color="Color.Tertiary">
-                                A plug-in for ImageJ which can quantify specific values around micro-bleeds such as
-                                magnetic
-                                moments
-                            </MudText>
-                        </MudItem>
-                        <MudItem Class="d-flex justify-center" xs="3">
-                            <MudLink Href="https://github.com/bolst/PCAANN" Target="blank">
-                                <MudImage
-                                    Src="https://seeklogo.com/images/T/tensorflow-logo-C69AEAC9D0-seeklogo.com.png"
-                                    style="height: 80px;" />
-                            </MudLink>
-                        </MudItem>
-                        <MudItem Class="d-flex justify-center" xs="9">
-                            <MudText Class="flex-auto d-flex align-self-center" Color="Color.Tertiary">
-                                App to find optimal parameters for the machine learning programs that analyze bacterial
-                                spectra
-                                in Dr. Steven Rehse's lab
-                            </MudText>
-                        </MudItem>
-                        <MudItem Class="d-flex justify-center" xs="3">
-                            <MudLink Href="https://github.com/bolst/HHG" Target="blank">
-                                <MudImage Src="https://cdn-icons-png.flaticon.com/512/7343/7343843.png"
-                                    style="height: 80px;" />
-                            </MudLink>
-                        </MudItem>
-                        <MudItem Class="d-flex justify-center" xs="9">
-                            <MudText Class="flex-auto d-flex align-self-center" Color="Color.Tertiary">
-                                Notebooks on High-Harmonic Generation in solids, which involves solving the TDSE in
-                                different
-                                lattices
-                            </MudText>
-                        </MudItem>
-                    </MudGrid>
-                </MudPaper>
-            </Animate>
-        </div>
+                </MudItem>
+                <MudItem Class="d-flex justify-center" xs="3">
+                    <MudLink Href="https://github.com/bolst/PCAANN" Target="blank">
+                        <MudImage Src="https://seeklogo.com/images/T/tensorflow-logo-C69AEAC9D0-seeklogo.com.png"
+                            style="height: 80px;" />
+                    </MudLink>
+                </MudItem>
+                <MudItem Class="d-flex justify-center" xs="9">
+                    <MudText Class="flex-auto d-flex align-self-center" Color="Color.Tertiary">
+                        App to find optimal parameters for the machine learning programs that analyze bacterial
+                        spectra
+                        in Dr. Steven Rehse's lab
+                    </MudText>
+                </MudItem>
+                <MudItem Class="d-flex justify-center" xs="3">
+                    <MudLink Href="https://github.com/bolst/HHG" Target="blank">
+                        <MudImage Src="https://cdn-icons-png.flaticon.com/512/7343/7343843.png" style="height: 80px;" />
+                    </MudLink>
+                </MudItem>
+                <MudItem Class="d-flex justify-center" xs="9">
+                    <MudText Class="flex-auto d-flex align-self-center" Color="Color.Tertiary">
+                        Notebooks on High-Harmonic Generation in solids, which involves solving the TDSE in
+                        different
+                        lattices
+                    </MudText>
+                </MudItem>
+            </MudGrid>
+        </MudPaper>
+        @* </Animate>
+        </div> *@
     </MudItem>
     <MudItem xs="12" sm="8" id="mehockey">
-        <div id="#b-animate">
-            <Animate Anchor="#b-animate" @ref="projectAnimRefs[11]" Auto="false">
-                <MudPaper Elevation="2" Class="pa-4 d-flex justify-center" Style="min-height: 300px;">
-                    <MudGrid>
-                        <MudItem Class="d-flex justify-center" xs="12" sm="5">
-                            <MudLink Class="d-flex align-self-center" Href="https://dotnet.microsoft.com/en-us/"
-                                Target="blank">
-                                <MudImage Class="rounded-lg" Elevation="5"
-                                    Src="https://www.thepjhl.ca/wp-content/uploads/sites/2/2024/05/Schmalz-Cup-Article-780x520.png"
-                                    Fluid="true" />
-                            </MudLink>
-                        </MudItem>
-                        <MudItem Class="d-flex justify-center" xs="12" sm="7">
-                            <MudText Class="flex-auto d-flex py-8 align-self-center" Color="Color.Tertiary">
-                                I have been playing hockey as a goaltender since I was 10 years old. I played 4 years of
-                                junior
-                                hockey with the Lasalle Vipers, Amherstburg Admirals, and Lakeshore Canadiens. I
-                                finished junior
-                                hockey in 2024, where I was lucky enough to win a Schmalz Cup with Lakeshore.
-                            </MudText>
-                        </MudItem>
-                    </MudGrid>
-                </MudPaper>
-            </Animate>
-        </div>
+        @* <div id="#b-animate">
+        <Animate Anchor="#b-animate" @ref="projectAnimRefs[11]" Auto="false"> *@
+        <MudPaper Elevation="2" Class="pa-4 d-flex justify-center" Style="min-height: 300px;">
+            <MudGrid>
+                <MudItem Class="d-flex justify-center" xs="12" sm="5">
+                    <MudLink Class="d-flex align-self-center" Href="https://dotnet.microsoft.com/en-us/" Target="blank">
+                        <MudImage Class="rounded-lg" Elevation="5"
+                            Src="https://www.thepjhl.ca/wp-content/uploads/sites/2/2024/05/Schmalz-Cup-Article-780x520.png"
+                            Fluid="true" />
+                    </MudLink>
+                </MudItem>
+                <MudItem Class="d-flex justify-center" xs="12" sm="7">
+                    <MudText Class="flex-auto d-flex py-8 align-self-center" Color="Color.Tertiary">
+                        I have been playing hockey as a goaltender since I was 10 years old. I played 4 years of
+                        junior
+                        hockey with the Lasalle Vipers, Amherstburg Admirals, and Lakeshore Canadiens. I
+                        finished junior
+                        hockey in 2024, where I was lucky enough to win a Schmalz Cup with Lakeshore.
+                    </MudText>
+                </MudItem>
+            </MudGrid>
+        </MudPaper>
+        @* </Animate>
+        </div> *@
     </MudItem>
     <MudItem xs="12" sm="4" id="meboltoncup">
-        <div id="#b-animate">
-            <Animate Anchor="#b-animate" @ref="projectAnimRefs[12]" Auto="false">
-                <MudPaper Elevation="2" Class="pa-4 d-flex justify-center" Style="min-height: 300px;">
-                    <MudGrid>
-                        <MudItem Class="d-flex justify-center" xs="12" sm="8">
-                            <MudText Class="flex-auto d-flex align-self-center" Color="Color.Tertiary">
-                                My brother and I run an annual hockey tournament "Bolton Cup". Last time involved over
-                                60 players with $1000+ worth of prizes and multiple sponsorships. Players
-                                registered/payed and
-                                viewed their game stats through the website we developed.
-                            </MudText>
-                        </MudItem>
-                        <MudItem Class="d-flex justify-center" xs="12" sm="4">
-                            <MudLink Class="d-flex align-self-center" Href="https://boltoncup.ca" Target="blank">
-                                <MudImage Class="rounded-lg px-20 px-sm-0" Src="https://boltoncup.ca/logo.png"
-                                    Fluid="true" />
-                            </MudLink>
-                        </MudItem>
-                    </MudGrid>
-                </MudPaper>
-            </Animate>
-        </div>
+        @* <div id="#b-animate">
+        <Animate Anchor="#b-animate" @ref="projectAnimRefs[12]" Auto="false"> *@
+        <MudPaper Elevation="2" Class="pa-4 d-flex justify-center" Style="min-height: 300px;">
+            <MudGrid>
+                <MudItem Class="d-flex justify-center" xs="12" sm="8">
+                    <MudText Class="flex-auto d-flex align-self-center" Color="Color.Tertiary">
+                        My brother and I run an annual hockey tournament "Bolton Cup". Last time involved over
+                        60 players with $1000+ worth of prizes and multiple sponsorships. Players
+                        registered/payed and
+                        viewed their game stats through the website we developed.
+                    </MudText>
+                </MudItem>
+                <MudItem Class="d-flex justify-center" xs="12" sm="4">
+                    <MudLink Class="d-flex align-self-center" Href="https://boltoncup.ca" Target="blank">
+                        <MudImage Class="rounded-lg px-20 px-sm-0" Src="https://boltoncup.ca/logo.png" Fluid="true" />
+                    </MudLink>
+                </MudItem>
+            </MudGrid>
+        </MudPaper>
+        @* </Animate>
+        </div> *@
     </MudItem>
 </MudGrid>
 
@@ -224,58 +218,57 @@
 
 <MudGrid Class="mt-0 py-5 pb-20" id="contact">
     <MudItem Class="d-flex align-center" xs="12" sm="6" id="contactcard">
-        <div id="#b-animate">
-            <Animate Anchor="#b-animate" @ref="projectAnimRefs[4]" Auto="false">
+        @* <div id="#b-animate">
+        <Animate Anchor="#b-animate" @ref="projectAnimRefs[4]" Auto="false"> *@
 
-                <MudGrid Class="welcome-gradient rounded-xl d-flex flex-grow-1 gap-4">
-                    <MudItem xs="12">
-                        <MudText Typo="Typo.h2" Color="Color.Tertiary"><b>Get in touch</b></MudText>
-                        <MudText Class="pt-4 d-none d-sm-flex" Typo="Typo.h5" Color="Color.Tertiary">Whether it's for
-                            work or just to connect, you can find me at any of the handles to the right</MudText>
-                        <MudText Class="pt-4 px-4 d-flex d-sm-none" Typo="Typo.h5" Color="Color.Tertiary">Whether it's
-                            for
-                            work or just to connect, you can find me at any of the handles below</MudText>
-                    </MudItem>
-                    <MudItem Class="d-flex justify-end" xs="12">
-                        <MudButton Class="flex-none d-flex ma-8" Variant="Variant.Filled"
-                            Href="mailto:nicbolton17@icloud.com" EndIcon="@Icons.Custom.Brands.Telegram"
-                            IconColor="Color.Surface" IconSize="Size.Medium" Size="Size.Large" Color="Color.Dark">
-                            Contact</MudButton>
-                    </MudItem>
-                </MudGrid>
+        <MudGrid Class="welcome-gradient rounded-xl d-flex flex-grow-1 gap-4">
+            <MudItem xs="12">
+                <MudText Typo="Typo.h2" Color="Color.Tertiary"><b>Get in touch</b></MudText>
+                <MudText Class="pt-4 d-none d-sm-flex" Typo="Typo.h5" Color="Color.Tertiary">Whether it's for
+                    work or just to connect, you can find me at any of the handles to the right</MudText>
+                <MudText Class="pt-4 px-4 d-flex d-sm-none" Typo="Typo.h5" Color="Color.Tertiary">Whether it's
+                    for
+                    work or just to connect, you can find me at any of the handles below</MudText>
+            </MudItem>
+            <MudItem Class="d-flex justify-end" xs="12">
+                <MudButton Class="flex-none d-flex ma-8" Variant="Variant.Filled" Href="mailto:nicbolton17@icloud.com"
+                    EndIcon="@Icons.Custom.Brands.Telegram" IconColor="Color.Surface" IconSize="Size.Medium"
+                    Size="Size.Large" Color="Color.Dark">
+                    Contact</MudButton>
+            </MudItem>
+        </MudGrid>
 
-            </Animate>
-        </div>
+        @* </Animate>
+        </div> *@
     </MudItem>
     <MudItem Class="d-flex align-center" xs="12" sm="6" id="contactitems">
         <MudContainer Fixed="true">
-            <div id="#b-animate">
-                <Animate Anchor="#b-animate" @ref="projectAnimRefs[5]" Auto="false">
+            @* <div id="#b-animate">
+            <Animate Anchor="#b-animate" @ref="projectAnimRefs[5]" Auto="false"> *@
 
-                    <MudButton Href="https://github.com/bolst" Target="blank" StartIcon="@Icons.Custom.Brands.GitHub"
-                        Color="Color.Tertiary" Size="Size.Large" IconColor="Color.Tertiary">
-                        <MudText Typo="Typo.h3">bolst</MudText>
-                    </MudButton>
+            <MudButton Href="https://github.com/bolst" Target="blank" StartIcon="@Icons.Custom.Brands.GitHub"
+                Color="Color.Tertiary" Size="Size.Large" IconColor="Color.Tertiary">
+                <MudText Typo="Typo.h3">bolst</MudText>
+            </MudButton>
 
-                    <MudDivider />
+            <MudDivider />
 
-                    <MudButton Class="py-5" Href="https://linkedin.com/in/nicbolt" Target="blank"
-                        StartIcon="@Icons.Custom.Brands.LinkedIn" Color="Color.Tertiary" Size="Size.Large"
-                        IconColor="Color.Info">
-                        <MudText Typo="Typo.h3">Nic Bolton</MudText>
-                    </MudButton>
+            <MudButton Class="py-5" Href="https://linkedin.com/in/nicbolt" Target="blank"
+                StartIcon="@Icons.Custom.Brands.LinkedIn" Color="Color.Tertiary" Size="Size.Large"
+                IconColor="Color.Info">
+                <MudText Typo="Typo.h3">Nic Bolton</MudText>
+            </MudButton>
 
-                    <MudDivider />
+            <MudDivider />
 
-                    <MudButton Class="py-5"
-                        Href="https://open.spotify.com/user/yxw5r5gm2z1weqe2ypfmzjvxg?si=f851154a80ed48a2"
-                        Target="blank" StartIcon="@spotifyIcon" Color="Color.Tertiary" Size="Size.Large"
-                        IconColor="Color.Success">
-                        <MudText Typo="Typo.h3">nicbolton</MudText>
-                    </MudButton>
+            <MudButton Class="py-5" Href="https://open.spotify.com/user/yxw5r5gm2z1weqe2ypfmzjvxg?si=f851154a80ed48a2"
+                Target="blank" StartIcon="@spotifyIcon" Color="Color.Tertiary" Size="Size.Large"
+                IconColor="Color.Success">
+                <MudText Typo="Typo.h3">nicbolton</MudText>
+            </MudButton>
 
-                </Animate>
-            </div>
+            @* </Animate>
+            </div> *@
         </MudContainer>
     </MudItem>
 </MudGrid>
