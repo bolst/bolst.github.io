@@ -1,0 +1,16 @@
+using Microsoft.AspNetCore.Components.Web;
+using Microsoft.AspNetCore.Components.WebAssembly.Hosting;
+using Portfolio;
+using MudBlazor.Services;
+using Microsoft.JSInterop;
+using Portfolio.Api;
+
+var builder = WebAssemblyHostBuilder.CreateDefault(args);
+builder.RootComponents.Add<App>("#app");
+builder.RootComponents.Add<HeadOutlet>("head::after");
+
+builder.Services.AddMudServices();
+
+var app = builder.Build();
+
+await app.RunAsync();

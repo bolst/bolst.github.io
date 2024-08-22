@@ -1,0 +1,21 @@
+@namespace Portfolio.Components
+
+<MudContainer>
+    <MudText Class="d-flex justify-center" Typo="Typo.h1" Color="Color.Primary">
+        <b>@commitCount</b>
+    </MudText>
+    <MudText Class="d-flex justify-center" Typo="Typo.h3" Color="Color.Tertiary">
+        commits
+    </MudText>
+    <MudText Class="d-flex justify-center" Typo="Typo.h6" Color="Color.Tertiary">and counting...</MudText>
+</MudContainer>
+
+
+@code {
+    int commitCount = 0;
+
+    protected override async Task OnInitializedAsync()
+    {
+        commitCount = await Api.GitStats.Instance().TotalCommits();
+    }
+}
