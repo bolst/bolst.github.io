@@ -1,0 +1,20 @@
+<MudToolBar Class="rounded-xl"
+    style="background-color: var(--mud-palette-appbar-background); backdrop-filter: blur(3px);">
+    <MudIconButton Icon="fas fa-atom" Color="Color.Primary" Href="/" />
+    <MudButton Style="color: var(--mud-palette-appbar-text)" Href="#projects">Projects</MudButton>
+    <MudButton Style="color: var(--mud-palette-appbar-text)" Href="#me">Me</MudButton>
+    <MudButton Style="color: var(--mud-palette-appbar-text)" Href="#contact">Contact</MudButton>
+    <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@InvokeDarkModeAction" />
+</MudToolBar>
+
+@code {
+    [Parameter] public Action DarkModeAction { get; set; }
+
+    private void InvokeDarkModeAction()
+    {
+        DarkModeAction?.Invoke();
+    }
+
+    [Parameter] public string DarkLightModeButtonIcon { get; set; }
+    [Parameter] public EventCallback<string> DarkLightModeButtonIconChanged { get; set; }
+}

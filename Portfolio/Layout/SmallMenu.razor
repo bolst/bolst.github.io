@@ -1,0 +1,42 @@
+@inject NavigationManager navManager
+
+
+<MudStack Class="rounded-xl py-4 px-2"
+    Style="background-color: var(--mud-palette-appbar-background); backdrop-filter: blur(3px);">
+    <MudButton Class="px-6" Color="Color.Primary" OnClick="@MenuClicked">Menu</MudButton>
+    @if (!menuCollapsed)
+    {
+        <MudIconButton Icon="fas fa-atom" Color="Color.Primary" OnClick='() => GoTo("/")' />
+        <MudButton Style="color: var(--mud-palette-appbar-text)" OnClick='() => GoTo("#projects")'>Projects</MudButton>
+        <MudButton Style="color: var(--mud-palette-appbar-text)" OnClick='() => GoTo("#me")'>Me</MudButton>
+        <MudButton Style="color: var(--mud-palette-appbar-text)" OnClick='() => GoTo("#contact")'>Contact</MudButton>
+        <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Dark" OnClick="@InvokeDarkModeAction" />
+    }
+    </MudStack>
+
+
+    @code {
+    [Parameter] public Action DarkModeAction { get; set; }
+
+    private void InvokeDarkModeAction()
+    {
+        DarkModeAction?.Invoke();
+    }
+
+    [Parameter] public string DarkLightModeButtonIcon { get; set; }
+    [Parameter] public EventCallback<string> DarkLightModeButtonIconChanged { get; set; }
+
+    bool menuCollapsed = true;
+
+    void MenuClicked()
+    {
+        menuCollapsed = !menuCollapsed;
+    }
+
+    void GoTo(string to)
+    {
+        menuCollapsed = true;
+        navManager.NavigateTo(to);
+        StateHasChanged();
+    }
+}

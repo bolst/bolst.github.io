@@ -6,31 +6,33 @@
 <MudSnackbarProvider />
 
 <MudLayout>
-    <MudGrid Class="z-60" Style="position: fixed">
-        <MudItem xs="4" md="2" Class="rounded-br-xl mx-10" style="background-color: var(--mud-palette-black)">
-            <MudText Class="py-8 ma-auto" Typo="Typo.h4" Color="Color.Tertiary"><b>Nic Bolton</b></MudText>
-        </MudItem>
-        <MudItem xs="5" Class="align-content-center">
-            <MudItem xs="1" Class="align-content-center">
-                <MudContainer Class="d-flex d-md-none">
-                    <MudToolBar Class="rounded-xl"
-                        style="background-color: var(--mud-palette-appbar-background); backdrop-filter: blur(3px);">
-                        <MudButton Color="Color.Primary">Menu</MudButton>
-                    </MudToolBar>
-                </MudContainer>
-            </MudItem>
-            <MudContainer Class="d-none d-md-flex">
-                <MudToolBar Class="rounded-xl"
-                    style="background-color: var(--mud-palette-appbar-background); backdrop-filter: blur(3px);">
-                    <MudIconButton Icon="fas fa-atom" Color="Color.Primary" Href="/"></MudIconButton>
-                    <MudButton Style="color: var(--mud-palette-appbar-text)" Href="#projects">Projects</MudButton>
-                    <MudButton Style="color: var(--mud-palette-appbar-text)" Href="#me">Me</MudButton>
-                    <MudButton Style="color: var(--mud-palette-appbar-text)" Href="#contact">Contact</MudButton>
-                    <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Inherit" OnClick="@DarkModeToggle" />
-                </MudToolBar>
+    <MudContainer Class="z-60 d-flex flex-grow-1 gap-4 px-0 fixed">
+        <MudContainer Class="z-60 rounded-br-xl ml-0 d-flex"
+            Style="background-color: var(--mud-palette-black); max-width: fit-content; height:8rem">
+            <MudText Class="align-self-center" Typo="Typo.h4" Color="Color.Tertiary"><b>Nic Bolton</b></MudText>
+        </MudContainer>
+        <MudContainer Class="pt-10">
+            <MudContainer Class="d-flex d-md-none">
+                <SmallMenu DarkModeAction="@DarkModeToggle" DarkLightModeButtonIcon="@DarkLightModeButtonIcon" />
             </MudContainer>
-        </MudItem>
-    </MudGrid>
+            <MudContainer Class="d-none d-md-flex">
+                <TopMenu DarkModeAction="@DarkModeToggle" DarkLightModeButtonIcon="@DarkLightModeButtonIcon" />
+            </MudContainer>
+        </MudContainer>
+    </MudContainer>
+    @* <MudGrid Class="z-60" Style="position: fixed">
+    <MudItem xs="4" md="2" Class="rounded-br-xl mx-10" style="background-color: var(--mud-palette-black)">
+    <MudText Class="py-8 ma-auto" Typo="Typo.h4" Color="Color.Tertiary"><b>Nic Bolton</b></MudText>
+    </MudItem>
+    <MudItem xs="5" Class="align-content-center">
+    <MudContainer Class="d-flex d-md-none">
+    <SmallMenu />
+    </MudContainer>
+    <MudContainer Class="d-none d-md-flex">
+    <TopMenu DarkModeAction="@DarkModeToggle" DarkLightModeButtonIcon="@DarkLightModeButtonIcon" />
+    </MudContainer>
+    </MudItem>
+    </MudGrid> *@
     <MudMainContent Class="mx-10 mx-lg-20">
         @Body
     </MudMainContent>
@@ -66,15 +68,10 @@
             };
     }
 
-
-    private void DrawerToggle()
-    {
-        _drawerOpen = !_drawerOpen;
-    }
-
     private void DarkModeToggle()
     {
         _isDarkMode = !_isDarkMode;
+        StateHasChanged();
     }
 
     private readonly PaletteLight _lightPalette = new()
