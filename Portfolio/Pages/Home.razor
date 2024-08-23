@@ -281,7 +281,7 @@
                 dotNetHelper.invokeMethodAsync('DoAnimation', queryStr, animIndex, animStr);
             }
         },
-            { threshold: [0.5] }
+            { threshold: [1] }
         );
 
         observer.observe(document.querySelector(queryStr));
@@ -321,19 +321,19 @@ Animations.ZoomOutLeft,
     {
         if (firstRender)
         {
-            await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#project0", 0, "ZoomOutRight");
+            /* await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#project0", 0, "ZoomOutRight");
             await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#project1", 1, "ZoomOutDown");
             await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#project2", 2, "ZoomOutUp");
             await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#project3", 3, "ZoomOutLeft");
             await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#contactcard", 4, "SlideRight");
-            await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#contactitems", 5, "SlideLeft");
+            await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#contactitems", 5, "SlideLeft"); */
             await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#stats", 6, "FadeDownLeft");
             await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#comingsoon", 7, "FadeUpLeft");
-            await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#mehome", 8, "SlideRight");
+            /* await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#mehome", 8, "SlideRight");
             await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#mecoding", 9, "SlideRight");
             await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#mephysics", 10, "SlideLeft");
             await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#mehockey", 11, "SlideUp");
-            await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#meboltoncup", 12, "SlideUp");
+            await JS.InvokeVoidAsync("addIntersectionObserver", objRef, "#meboltoncup", 12, "SlideUp"); */
         }
     }
 
