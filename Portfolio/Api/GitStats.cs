@@ -33,7 +33,6 @@ namespace Portfolio.Api
                 {
                     var commits = await github.Repository.Commit.GetAll(repo.Id);
                     totalCommits += commits.Count;
-                    Console.WriteLine($"{repo.Name} has {commits.Count} commits");
                 }
 
                 return totalCommits;
