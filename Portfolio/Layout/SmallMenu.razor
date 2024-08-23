@@ -3,16 +3,23 @@
 
 <MudStack Class="rounded-xl py-4 px-2"
     Style="background-color: var(--mud-palette-appbar-background); backdrop-filter: blur(3px);">
-    <MudButton Class="px-6" Color="Color.Primary" OnClick="@MenuClicked">Menu</MudButton>
+    <MudIconButton Class="px-6" Icon="@menuIcon" Color="Color.Primary" OnClick='@MenuClicked' />
     @if (!menuCollapsed)
     {
-        <MudIconButton Icon="fas fa-atom" Color="Color.Primary" OnClick='() => GoTo("/")' />
-        <MudButton Style="color: var(--mud-palette-appbar-text)" OnClick='() => GoTo("#projects")'>Projects</MudButton>
-        <MudButton Style="color: var(--mud-palette-appbar-text)" OnClick='() => GoTo("#me")'>Me</MudButton>
-        <MudButton Style="color: var(--mud-palette-appbar-text)" OnClick='() => GoTo("#contact")'>Contact</MudButton>
-        <MudIconButton Icon="@(DarkLightModeButtonIcon)" Color="Color.Dark" OnClick="@InvokeDarkModeAction" />
+        <div id="#b-animate">
+            <Animate Anchor="#b-animate" Auto Animation="Animations.ZoomOutUp" Easing="Easings.EaseInOutSine">
+                <MudStack Class="rounded-xl py-4 px-2">
+                    <MudIconButton Icon="fas fa-atom" Color="Color.Dark" OnClick='() => GoTo("/")' />
+                    <MudIconButton Icon="@Icons.Custom.Brands.MicrosoftVisualStudio" Color="Color.Dark" OnClick='() => GoTo("#projects")' />
+                    <MudIconButton Icon="@Icons.Material.Filled.Person" Color="Color.Dark" OnClick='() => GoTo("#me")' />
+                    <MudIconButton Icon="@Icons.Material.Filled.ConnectWithoutContact" Color="Color.Dark" OnClick='() => GoTo("#contact")' />
+                    <MudIconButton Icon="@DarkLightModeButtonIcon" Color="Color.Dark" OnClick="@InvokeDarkModeAction" />
+                </MudStack>
+            </Animate>
+        </div>
     }
-    </MudStack>
+</MudStack>
+
 
 
     @code {
@@ -20,7 +27,6 @@
 
     private void InvokeDarkModeAction()
     {
-        menuCollapsed = true;
         DarkModeAction?.Invoke();
     }
 
@@ -40,4 +46,10 @@
         navManager.NavigateTo(to);
         StateHasChanged();
     }
+
+    public string menuIcon => menuCollapsed switch
+    {
+        true => Icons.Material.Filled.Menu,
+        false => Icons.Material.Filled.MenuOpen,
+    };
 }
