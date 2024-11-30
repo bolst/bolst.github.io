@@ -1,5 +1,7 @@
 @namespace Portfolio.Components
 
+@inject Data.GitStats GitStats
+
 <MudContainer>
     <MudText Class="d-flex justify-center" Typo="Typo.h1" Color="Color.Primary">
         <b>@commitCount</b>
@@ -12,10 +14,10 @@
 
 
 @code {
-    int commitCount = 534;
+    private int commitCount = 534;
 
     protected override async Task OnInitializedAsync()
     {
-        commitCount = await Api.GitStats.Instance().TotalCommits();
+        commitCount = await GitStats.GetTotalCommits();
     }
 }
