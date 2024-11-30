@@ -1,5 +1,6 @@
 ﻿@page "/"
 @inject IJSRuntime JS
+@inject NavigationManager Navigation
 
 <MudGrid Class="pb-20">
     <MudItem xs="12" md="9">
@@ -8,19 +9,9 @@
                 &nbsp;
             </MudItem>
             <MudItem Class="rounded-tr-xl align-content-center" xs="10" sm="7" md="5"
-                Style="background: var(--mud-palette-black); min-height: 40vh;">
-                <div id="#b-animate">
-                    <Animate Anchor="#b-animate" Animation="Animations.Fade">
-                        <MudText Class="pb-8" Typo="Typo.h4" Color="Color.Tertiary">
-                            <!-- <b>Solving problems</b> -->
-                        </MudText>
-                        <MudText Class="pb-8" Typo="Typo.h4" Color="Color.Tertiary">
-                            <!-- <b>Continuously learning</b> -->
-                        </MudText>
-                        <MudText Class="pb-8" Typo="Typo.h4" Color="Color.Tertiary">
-                            <!-- <b>Driving innovation</b> -->
-                        </MudText>
-                    </Animate>
+                     Style="background: var(--mud-palette-black); min-height: 40vh;">
+                <div class="pr-12 d-flex justify-center" >
+                    <MudIcon Icon="@Icons.Custom.Brands.GitHub" Style="font-size: 8rem; cursor: pointer" @onclick=@(() => Navigation.NavigateTo("https://github.com/bolst"))/>
                 </div>
             </MudItem>
         </MudGrid>
