@@ -1,0 +1,83 @@
+﻿@page "/"
+
+<PageTitle>Nic Bolton</PageTitle>
+
+<Section>
+    <div class="mud-full-width d-flex flex-column align-center justify-center">
+        <MudText Typo="Typo.h6">Nic Bolton</MudText>
+        <MudText Typo="Typo.subtitle1">Software developer</MudText>
+        <div class="mt-2 mud-full-width d-flex flex-row justify-space-evenly">
+            <MudButtonGroup OverrideStyles="false">
+                <MudButton StartIcon="@Icons.Material.Filled.Article" Color="Color.Inherit" Href="https://raw.githubusercontent.com/bolst/bolst/refs/heads/main/doc/cv.pdf" Target="_blank">CV</MudButton>
+                @foreach (var profile in _profiles)
+                {
+                    <MudIconButton Style="@($"color: {profile.Color}")" Icon="@profile.Icon" Href="@profile.Href" Size="Size.Large" Target="_blank"/>
+                }
+            </MudButtonGroup>
+        </div>
+    </div>
+</Section>
+
+<Section Title="Projects">
+    @foreach (var project in _projects)
+    {
+        <div class="mud-full-width d-flex flex-column">
+            <MudDivider/>
+            <ProjectCard Project="project" Class="px-4 py-8"/>
+        </div>
+    }
+    <MudDivider/>
+</Section>
+
+
+@code {
+
+    private readonly IEnumerable<Models.SocialMediaProfile> _profiles =
+    [
+        new("GitHub")
+        {
+            Href = "https://github.com/bolst",
+            Icon = Icons.Custom.Brands.GitHub,
+            Color = "#FFFCCC"
+        },
+        new("LinkedIn")
+        {
+            Href = "https://www.linkedin.com/in/nicbolt",
+            Icon = Icons.Custom.Brands.LinkedIn,
+            Color = "#0072B1"
+        },
+    ];
+
+    private readonly IEnumerable<Models.Project> _projects =
+    [
+        new("Bolton Cup", "Website, scoresheet app, and draft app for the annual Bolton Cup hockey tournament involving 6 teams, nearly 100 players, and $1000+ worth of prizes")
+        {
+            Url = "https://boltoncup.ca",
+            RepoUrl = "https://github.com/bolst/BoltonCup",
+            ImageUrl = "https://iiedqecnfyojvubvugmy.supabase.co/storage/v1/object/public/images/web-home.jpg",
+            ImageOffsetY = "25%",
+            TechStack = [Techs.Blazor, Techs.Postgres, Techs.Stripe, Techs.N8N]
+        },
+        new("Home Lab", "My setup to run my own local services, such as custom DNS and local AI agents")
+        {
+            ImageUrl = "https://linuxhandbook.com/content/images/2021/11/homelab-setup.webp",
+            TechStack = [Techs.TrueNAS, Techs.Ollama, Techs.Jellyfin, Techs.PiHole, Techs.Nginx, Techs.WireGuard],
+            ImageOffsetY = "65%"
+        },
+        new("Exo Explorer", "Submission for 2024 NASA Space Apps Challenge (placed 3rd locally)")
+        {
+            Url = "https://bolst.github.io/ExoExplorer/",
+            RepoUrl = "https://github.com/bolst/ExoExplorer",
+            ImageUrl = "https://news.stanford.edu/__data/assets/image/0033/86955/Exoplanets.jpeg",
+            TechStack = [Techs.ThreeJS]
+        },
+        new("Classical Shor", "A classical implementation of Shor's Algorithm, showing how (large) integers can be factored in polynomial time")
+        {
+            Url = "https://github.com/bolst/classical-shor",
+            RepoUrl = "https://github.com/bolst/classical-shor",
+            ImageUrl = "https://bernardmarr.com/wp-content/uploads/2021/08/The-Future-of-Quantum-Computing.jpg",
+            TechStack = [Techs.Qiskit],
+        },
+    ];
+
+}

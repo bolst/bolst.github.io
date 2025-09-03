@@ -1,0 +1,46 @@
+@using MudBlazor.Utilities
+
+<div class="@Classname" style="@Style" id="@Title">
+    <MudPaper Class="@PaperClassname" Width="100%">
+        @if (!string.IsNullOrEmpty(Title))
+        {
+            <MudText Class="mb-4" Typo="Typo.caption"><b>@Title</b></MudText>
+        }
+        @ChildContent
+    </MudPaper>
+</div>
+
+@code {
+
+    
+    [Parameter]
+    public RenderFragment ChildContent { get; set; }
+
+    [Parameter]
+    public string? Class { get; set; }
+
+    [Parameter]
+    public string? Style { get; set; }
+    
+    [Parameter]
+    public string? PaperClass { get; set; }
+    
+    [Parameter]
+    public string? Title { get; set; }
+
+
+    private string Classname => new CssBuilder()
+        .AddClass("mud-full-width")
+        .AddClass("d-flex flex-column align-center")
+        .AddClass("mx-2")
+        .AddClass("mb-4")
+        .AddClass(Class, !string.IsNullOrEmpty(Class))
+        .ToString();
+
+
+    private string PaperClassname => new CssBuilder()
+        .AddClass("pa-4")
+        .AddClass(PaperClass, !string.IsNullOrEmpty(PaperClass))
+        .ToString();
+
+}

@@ -1,0 +1,66 @@
+@using MudBlazor.Utilities
+
+@inject ILocalStorageService LocalStorage
+@inject NavigationManager Navigation
+
+<MudPaper Class="@Classname" Style="@Stylename">
+    <MudButtonGroup OverrideStyles="false">
+        <MudButton StartIcon="@Icons.Material.Filled.Article" Color="Color.Inherit" Href="https://raw.githubusercontent.com/bolst/bolst/refs/heads/main/doc/cv.pdf" Target="_blank">CV</MudButton>
+        <MudIconButton Icon="@DarkModeIcon" Color="Color.Inherit" OnClick="ToggleDarkMode"/>
+    </MudButtonGroup>
+</MudPaper>
+
+
+@code {
+
+    [Parameter]
+    public bool DarkMode { get; set; }
+    
+    [Parameter]
+    public EventCallback<bool> DarkModeChanged { get; set; }
+    
+    [Parameter]
+    public bool Bottom { get; set; }
+    
+    [Parameter]
+    public string? Class { get; set; }
+
+
+    private const string _darkModeStorageKey = "dark";
+    
+    private string Classname =>
+        new CssBuilder()
+            .AddClass("pa-2 fixed mud-theme-dark")
+            .AddClass("z-60")
+            .AddClass(Class, !string.IsNullOrEmpty(Class))
+            .ToString();
+    
+    private string Stylename =>
+        new StyleBuilder()
+            .AddStyle("bottom: 0", Bottom)
+            .ToString();
+    
+    private string DarkModeIcon => DarkMode ? Icons.Material.Filled.DarkMode : Icons.Material.Filled.LightMode;
+
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        if (!firstRender) return;
+
+        var darkMode = await LocalStorage.GetItemAsync<bool>(_darkModeStorageKey);
+
+        if (darkMode != DarkMode)
+        {
+            await ToggleDarkMode();
+        }
+    }
+    
+    
+    private async Task ToggleDarkMode()
+    {
+        DarkMode = !DarkMode;
+        await DarkModeChanged.InvokeAsync(DarkMode);
+        await LocalStorage.SetItemAsync(_darkModeStorageKey, DarkMode);
+    }
+
+}
