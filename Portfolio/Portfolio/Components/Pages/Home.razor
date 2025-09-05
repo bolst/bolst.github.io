@@ -8,7 +8,9 @@
         <MudText Typo="Typo.subtitle1">Software developer</MudText>
         <div class="mt-2 mud-full-width d-flex flex-row justify-space-evenly">
             <MudButtonGroup OverrideStyles="false">
-                <MudButton StartIcon="@Icons.Material.Filled.Article" Color="Color.Inherit" Href="https://raw.githubusercontent.com/bolst/bolst/refs/heads/main/doc/cv.pdf" Target="_blank">CV</MudButton>
+                <MudTooltip Text="CV" Placement="Placement.Bottom" Arrow>
+                    <MudIconButton Icon="@Icons.Material.Filled.Article" Color="Color.Inherit" Href="https://raw.githubusercontent.com/bolst/bolst/refs/heads/main/doc/cv.pdf" Target="_blank" />
+                </MudTooltip>
                 @foreach (var profile in _profiles)
                 {
                     <MudIconButton Style="@($"color: {profile.Color}")" Icon="@profile.Icon" Href="@profile.Href" Size="Size.Large" Target="_blank"/>
