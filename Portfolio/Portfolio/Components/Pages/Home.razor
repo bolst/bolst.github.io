@@ -58,13 +58,20 @@
             RepoUrl = "https://github.com/bolst/BoltonCup",
             ImageUrl = "https://iiedqecnfyojvubvugmy.supabase.co/storage/v1/object/public/images/web-home.jpg",
             ImageOffsetY = "25%",
-            TechStack = [Techs.Blazor, Techs.Postgres, Techs.Stripe, Techs.N8N]
+            TechStack = [Techs.Blazor, Techs.Postgres, Techs.Stripe, Techs.N8N, Techs.Docker]
         },
-        new("Home Lab", "My setup to run my own local services, such as custom DNS and local AI agents")
+        new("Home Lab", "My setup to run my own local services such as custom DNS and local AI agents")
         {
             ImageUrl = "https://linuxhandbook.com/content/images/2021/11/homelab-setup.webp",
-            TechStack = [Techs.TrueNAS, Techs.Ollama, Techs.Jellyfin, Techs.PiHole, Techs.Nginx, Techs.WireGuard],
+            TechStack = [Techs.TrueNAS, Techs.Docker, Techs.Ollama, Techs.PiHole, Techs.Nginx, Techs.WireGuard],
             ImageOffsetY = "65%"
+        },
+        new("Emergency Dispatch Simulator", "Submission for the Higgs Hackathon, hosted by Boson AI and MScAC (placed top 6 out of 80+ teams)")
+        {
+            Url = "https://www.loom.com/share/2bdf0ff746214a38a0281b41a148f46a",
+            RepoUrl = "https://github.com/RishiDinesh/emergency-dispatch-simulator",
+            ImageUrl = "https://media.istockphoto.com/id/1319258476/photo/female-air-traffic-controller-with-headset-talk-on-a-call-in-airport-tower-office-room-is.jpg?s=612x612&w=0&k=20&c=OQOVKLkclxoTAIoE_JFa404rAJ0jsNZxIONng6J4Jgg=",
+            TechStack = [Techs.HiggsV2, Techs.OpenAiApi, Techs.FastAPI, Techs.Docker]
         },
         new("Exo Explorer", "Submission for 2024 NASA Space Apps Challenge")
         {
@@ -72,7 +79,7 @@
             RepoUrl = "https://github.com/bolst/ExoExplorer",
             ImageUrl = "https://news.stanford.edu/__data/assets/image/0033/86955/Exoplanets.jpeg",
             TechStack = [Techs.ThreeJS]
-        },
+        },        
         new("Classical Shor", "A classical implementation of Shor's Algorithm, showing how (large) integers can be factored in polynomial time")
         {
             Url = "https://github.com/bolst/classical-shor",

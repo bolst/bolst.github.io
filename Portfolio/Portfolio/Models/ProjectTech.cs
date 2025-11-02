@@ -105,4 +105,36 @@ public sealed record ProjectTechs
         LogoUrl = "https://www.wireguard.com/img/wireguard.svg",
         Color = "#EA3323",
     };
+
+    public static ProjectTech FastAPI = new()
+    {
+        Title = "FastAPI",
+        Href = "https://fastapi.tiangolo.com/",
+        LogoUrl = "https://fastapi.tiangolo.com/img/logo-margin/logo-teal.png",
+        Color = "#419285",
+    };
+
+    public static ProjectTech HiggsV2 = new()
+    {
+        Title = "Higgs Audio V2",
+        Href = "https://github.com/boson-ai/higgs-audio/",
+        LogoUrl = "https://www.boson.ai/boson_ai_logo.svg",
+        Color = "#429445",
+    };
+
+    public static ProjectTech OpenAiApi = new()
+    {
+        Title = "OpenAI API",
+        Href = "https://openai.com/api/",
+        LogoUrl = "https://registry.npmmirror.com/@lobehub/icons-static-png/latest/files/dark/openai.png",
+        Color = "#A4CCE0",
+    };
+
+    public static ProjectTech Docker = new()
+    {
+        Title = "Docker",
+        Href = "https://www.docker.com/",
+        LogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Docker_Logo.svg/500px-Docker_Logo.svg.png",
+        Color = "#1D63ED",
+    };
 }
