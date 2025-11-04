@@ -1,7 +1,7 @@
 {
   "mainAssemblyName": "Portfolio",
   "resources": {
-    "hash": "sha256-bU5oZ+6mcRZ79mnoD+eQJ5oqEL4mG4KBYlYHfuFATaM=",
+    "hash": "sha256-eLfOmfOteDjH/aJEDSn2oCLHX4jN8pHvVKN7m1iRcnU=",
     "fingerprinting": {
       "Blazored.LocalStorage.12n6dz54qr.wasm": "Blazored.LocalStorage.wasm",
       "Microsoft.AspNetCore.Components.560gs23ayv.wasm": "Microsoft.AspNetCore.Components.wasm",
@@ -41,7 +41,7 @@
       "System.Text.RegularExpressions.m6z47oq18n.wasm": "System.Text.RegularExpressions.wasm",
       "System.Threading.6wxzpv4ki1.wasm": "System.Threading.wasm",
       "System.Private.CoreLib.imz96w5tcg.wasm": "System.Private.CoreLib.wasm",
-      "Portfolio.giccrcj9nt.wasm": "Portfolio.wasm",
+      "Portfolio.ug8mxlstbc.wasm": "Portfolio.wasm",
       "dotnet.native.g0x6c0ef2o.js": "dotnet.native.js",
       "dotnet.native.7vnaj0wbbx.wasm": "dotnet.native.wasm",
       "dotnet.js": "dotnet.js",
@@ -105,7 +105,7 @@
       "System.Text.Json.3beep02nlk.wasm": "sha256-ESf65qrehizmDKwEDDcy7HvRRsat2ggikKlQLyvNngU=",
       "System.Text.RegularExpressions.m6z47oq18n.wasm": "sha256-HjLQHtjXEJlAgcrVkxjG6bSSPBoQJAMrCzjahdetaTE=",
       "System.Threading.6wxzpv4ki1.wasm": "sha256-qpTsdttgwFKu3sCPl9Qw0nYZISOGaHpAJFTWUzt9Xzw=",
-      "Portfolio.giccrcj9nt.wasm": "sha256-qBqKPal3SdiYLdr3NShFSVHxgdBXXSXqqFxWQc7Qr3w="
+      "Portfolio.ug8mxlstbc.wasm": "sha256-ovYED45C5YTlbhrV73grgHWG/5DZk6WLZt2TXJpwpvc="
     }
   },
   "cacheBootResources": true,
