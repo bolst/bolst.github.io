@@ -10,7 +10,7 @@
                 }
                 else
                 {
-                    <MudLink Typo="Typo.h6" Href="@Project.Url" Target="_blank" Color="Color.Primary"><b>@Project.Name</b></MudLink>
+                    <MudLink Typo="Typo.h6" Href="@Project.Url" Target="@Project.Target" Color="Color.Primary"><b>@Project.Name</b></MudLink>
                 }
                 <div class="d-flex flex-row align-center flex-wrap gap-1">
                     @if (!string.IsNullOrEmpty(Project.RepoUrl))

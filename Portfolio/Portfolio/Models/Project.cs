@@ -10,4 +10,5 @@ public sealed record Project(string Name, string Description)
     public string ImageOffsetX { get; init; } = "center";
     public string ImageOffsetY { get; init; } = "center";
     public List<ProjectTech> TechStack { get; init; } = [];
+    public string? Target { get; init; } = "_blank";
 }

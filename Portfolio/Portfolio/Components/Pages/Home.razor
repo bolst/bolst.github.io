@@ -2,34 +2,59 @@
 
 <PageTitle>Nic Bolton</PageTitle>
 
-<Section>
-    <div class="mud-full-width d-flex flex-column align-center justify-center">
-        <MudText Typo="Typo.h6">Nic Bolton</MudText>
-        <MudText Typo="Typo.subtitle1">Software developer</MudText>
-        <div class="mt-2 mud-full-width d-flex flex-row justify-space-evenly">
-            <MudButtonGroup OverrideStyles="false">
-                @foreach (var profile in _profiles)
-                {
-                    <MudIconButton Style="@($"color: {profile.Color}")" Icon="@profile.Icon" Href="@profile.Href" Size="Size.Large" Target="_blank"/>
-                }
-            </MudButtonGroup>
+@if (Project == "eds")
+{
+    <PageTitle>Emergency Dispatch Simulator</PageTitle>
+
+    <div class="d-flex flex-row align-center justify-space-between mb-2">
+        <MudButton StartIcon="@Icons.Material.Rounded.ArrowBackIosNew" Href="/">Back</MudButton>
+        <div class="d-flex flex-row align-center gap-2">
+            <MudText Typo="Typo.h6">Emergency Dispatch Simulator</MudText>
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Surface" Href="@_edsRepoUrl" Target="_blank" Variant="Variant.Text" Size="Size.Small"/>
         </div>
     </div>
-</Section>
 
-<Section Title="Projects">
-    @foreach (var project in _projects)
-    {
-        <div class="mud-full-width d-flex flex-column">
-            <MudDivider/>
-            <ProjectCard Project="project" Class="px-4 py-8"/>
+    // embed Loom EDS video
+    <div style="position: relative; padding-bottom: 56.25%; height: 0;">
+        <iframe src="https://www.loom.com/embed/2bdf0ff746214a38a0281b41a148f46a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
+    </div>}
+else
+{
+    <Section>
+        <div class="mud-full-width d-flex flex-column align-center justify-center">
+            <MudText Typo="Typo.h6">Nic Bolton</MudText>
+            <MudText Typo="Typo.subtitle1">Software developer</MudText>
+            <div class="mt-2 mud-full-width d-flex flex-row justify-space-evenly">
+                <MudButtonGroup OverrideStyles="false">
+                    @foreach (var profile in _profiles)
+                    {
+                        <MudIconButton Style="@($"color: {profile.Color}")" Icon="@profile.Icon" Href="@profile.Href" Size="Size.Large" Target="_blank"/>
+                    }
+                </MudButtonGroup>
+            </div>
         </div>
-    }
-    <MudDivider/>
-</Section>
+    </Section>
+
+    <Section Title="Projects">
+        @foreach (var project in _projects)
+        {
+            <div class="mud-full-width d-flex flex-column">
+                <MudDivider/>
+                <ProjectCard Project="project" Class="px-4 py-8"/>
+            </div>
+        }
+        <MudDivider/>
+    </Section>
+}
 
 
 @code {
+
+    [SupplyParameterFromQuery]
+    public string? Project { get; set; }
+
+    private const string _edsRepoUrl = "https://github.com/RishiDinesh/emergency-dispatch-simulator";
+
 
     private readonly IEnumerable<Models.SocialMediaProfile> _profiles =
     [
@@ -71,10 +96,11 @@
         },
         new("Emergency Dispatch Simulator", "Submission for the Higgs Hackathon, hosted by Boson AI and MScAC (placed top 6 out of 80+ teams)")
         {
-            Url = "https://www.loom.com/share/2bdf0ff746214a38a0281b41a148f46a",
-            RepoUrl = "https://github.com/RishiDinesh/emergency-dispatch-simulator",
+            Url = "/?project=eds",
+            RepoUrl = _edsRepoUrl,
             ImageUrl = "https://media.istockphoto.com/id/1319258476/photo/female-air-traffic-controller-with-headset-talk-on-a-call-in-airport-tower-office-room-is.jpg?s=612x612&w=0&k=20&c=OQOVKLkclxoTAIoE_JFa404rAJ0jsNZxIONng6J4Jgg=",
-            TechStack = [Techs.HiggsV2, Techs.OpenAiApi, Techs.FastAPI, Techs.Blazor, Techs.Docker]
+            TechStack = [Techs.HiggsV2, Techs.OpenAiApi, Techs.FastAPI, Techs.Blazor, Techs.Docker],
+            Target = null
         },
         new("Exo Explorer", "Submission for 2024 NASA Space Apps Challenge")
         {
