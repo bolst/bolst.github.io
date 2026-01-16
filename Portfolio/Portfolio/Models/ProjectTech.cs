@@ -137,4 +137,12 @@ public sealed record ProjectTechs
         LogoUrl = "https://upload.wikimedia.org/wikipedia/commons/thumb/8/89/Docker_Logo.svg/500px-Docker_Logo.svg.png",
         Color = "#1D63ED",
     };
+
+    public static ProjectTech MLflow = new()
+    {
+        Title = "MLflow",
+        Href = "https://mlflow.org/",
+        LogoUrl = "https://mlflow.org/docs/latest/api_reference/_static/MLflow-logo-final-black.png",
+        Color = "#3D96DF",
+    };
 }
