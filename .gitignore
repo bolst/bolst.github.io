@@ -3,3 +3,6 @@ Portfolio/bin
 Portfolio/obj
 
 .idea
+/.vs/Portfolio.slnx/v18
+/Portfolio/.vs/Portfolio
+/Portfolio/Portfolio/Portfolio.csproj.user
