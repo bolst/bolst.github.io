@@ -1,6 +1,6 @@
-namespace Portfolio.Models;
+namespace Portfolio.Data.Models;
 
-public sealed record SocialMediaProfile(string Provider)
+public sealed record SocialProfile(string Provider)
 {
     public string? Href { get; init; }
     public string? Icon { get; init; }

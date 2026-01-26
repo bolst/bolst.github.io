@@ -1,5 +1,7 @@
 ﻿@page "/"
 
+@inject Data.IPortfolioData PortfolioData
+
 <PageTitle>Nic Bolton</PageTitle>
 
 @if (Project == "eds")
@@ -10,14 +12,14 @@
         <MudButton StartIcon="@Icons.Material.Rounded.ArrowBackIosNew" Href="/">Back</MudButton>
         <div class="d-flex flex-row align-center gap-2">
             <MudText Typo="Typo.h6">Emergency Dispatch Simulator</MudText>
-            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Surface" Href="@_edsRepoUrl" Target="_blank" Variant="Variant.Text" Size="Size.Small"/>
+            <MudIconButton Icon="@Icons.Custom.Brands.GitHub" Color="Color.Surface" Href="https://github.com/RishiDinesh/emergency-dispatch-simulator" Target="_blank" Variant="Variant.Text" Size="Size.Small"/>
         </div>
     </div>
 
-    // embed Loom EDS video
     <div style="position: relative; padding-bottom: 56.25%; height: 0;">
         <iframe src="https://www.loom.com/embed/2bdf0ff746214a38a0281b41a148f46a" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen style="position: absolute; top: 0; left: 0; width: 100%; height: 100%;"></iframe>
-    </div>}
+    </div>
+}
 else
 {
     <Section>
@@ -26,7 +28,7 @@ else
             <MudText Typo="Typo.subtitle1">Software developer</MudText>
             <div class="mt-2 mud-full-width d-flex flex-row justify-space-evenly">
                 <MudButtonGroup OverrideStyles="false">
-                    @foreach (var profile in _profiles)
+                    @foreach (var profile in _socials)
                     {
                         <MudIconButton Style="@($"color: {profile.Color}")" Icon="@profile.Icon" Href="@profile.Href" Size="Size.Large" Target="_blank"/>
                     }
@@ -53,69 +55,18 @@ else
     [SupplyParameterFromQuery]
     public string? Project { get; set; }
 
-    private const string _edsRepoUrl = "https://github.com/RishiDinesh/emergency-dispatch-simulator";
+    private bool _dataLoaded;
+    private IEnumerable<Data.Models.SocialProfile> _socials = [];
+    private IEnumerable<Data.Models.Project> _projects = [];
 
-
-    private readonly IEnumerable<Models.SocialMediaProfile> _profiles =
-    [
-        new ("CV")
-        {
-            Href = "./docs/cv.pdf",
-            Icon = Icons.Material.Rounded.Article,
-            Color = "#BABABA",
-        },
-        new("GitHub")
-        {
-            Href = "https://github.com/bolst",
-            Icon = Icons.Custom.Brands.GitHub,
-            Color = "#FCFCFC"
-        },
-        new("LinkedIn")
-        {
-            Href = "https://www.linkedin.com/in/nicbolt",
-            Icon = Icons.Custom.Brands.LinkedIn,
-            Color = "#0072B1"
-        },
-    ];
-
-    private readonly IEnumerable<Models.Project> _projects =
-    [
-        new("Bolton Cup", "Website, scoresheet app, and draft app for the annual Bolton Cup hockey tournament involving 6 teams, nearly 100 players, and $1000+ worth of prizes")
-        {
-            Url = "https://boltoncup.ca",
-            RepoUrl = "https://github.com/bolst/BoltonCup",
-            ImageUrl = "https://iiedqecnfyojvubvugmy.supabase.co/storage/v1/object/public/images/web-home.jpg",
-            ImageOffsetY = "25%",
-            TechStack = [Techs.Blazor, Techs.Postgres, Techs.Stripe, Techs.N8N, Techs.Docker]
-        },
-        new("Home Lab", "My setup to run my own local services such as custom DNS and local AI agents")
-        {
-            ImageUrl = "https://linuxhandbook.com/content/images/2021/11/homelab-setup.webp",
-            TechStack = [Techs.TrueNAS, Techs.Docker, Techs.Ollama, Techs.PiHole, Techs.Nginx, Techs.WireGuard],
-            ImageOffsetY = "65%"
-        },
-        new("Emergency Dispatch Simulator", "Submission for the Higgs Hackathon, hosted by Boson AI and MScAC (placed top 6 out of 80+ teams)")
-        {
-            Url = "/?project=eds",
-            RepoUrl = _edsRepoUrl,
-            ImageUrl = "https://media.istockphoto.com/id/1319258476/photo/female-air-traffic-controller-with-headset-talk-on-a-call-in-airport-tower-office-room-is.jpg?s=612x612&w=0&k=20&c=OQOVKLkclxoTAIoE_JFa404rAJ0jsNZxIONng6J4Jgg=",
-            TechStack = [Techs.HiggsV2, Techs.OpenAiApi, Techs.FastAPI, Techs.Blazor, Techs.Docker],
-            Target = null
-        },
-        new("Exo Explorer", "Submission for 2024 NASA Space Apps Challenge")
-        {
-            Url = "https://bolst.github.io/ExoExplorer/",
-            RepoUrl = "https://github.com/bolst/ExoExplorer",
-            ImageUrl = "https://news.stanford.edu/__data/assets/image/0033/86955/Exoplanets.jpeg",
-            TechStack = [Techs.ThreeJS]
-        },        
-        new("Classical Shor", "A classical implementation of Shor's Algorithm, showing how (large) integers can be factored in polynomial time")
-        {
-            Url = "https://github.com/bolst/classical-shor",
-            RepoUrl = "https://github.com/bolst/classical-shor",
-            ImageUrl = "https://bernardmarr.com/wp-content/uploads/2021/08/The-Future-of-Quantum-Computing.jpg",
-            TechStack = [Techs.Qiskit],
-        },
-    ];
+    protected override async Task OnParametersSetAsync()
+    {
+        if (_dataLoaded)
+            return;
+        _dataLoaded = true;
+        
+        _socials = await PortfolioData.GetSocialsAsync();
+        _projects = await PortfolioData.GetProjectsAsync();
+    }
 
 }

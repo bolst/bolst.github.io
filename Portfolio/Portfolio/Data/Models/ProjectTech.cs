@@ -1,4 +1,4 @@
-namespace Portfolio.Models;
+namespace Portfolio.Data.Models;
 
 public sealed record ProjectTech
 {
