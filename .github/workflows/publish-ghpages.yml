@@ -1,4 +1,4 @@
-name: build portfolio
+name: Build and publish to GH Pages
 
 on:
   push:
@@ -12,23 +12,18 @@ jobs:
   deploy-to-github-pages:
     runs-on: ubuntu-latest
     steps:
-      # Checkout the code
-      - uses: actions/checkout@v4
-
-      # Install .NET Core SDK
+      - name: Checkout
+        uses: actions/checkout@v4
       - name: Setup .NET Core
         uses: actions/setup-dotnet@v4
         with:
           dotnet-version: 9.0.x
-          
-      # Install dotnet wasm buildtools workload
       - name: Install .NET WASM Build Tools
         run: dotnet workload install wasm-tools
-          
-      # Publishes Blazor project to the release-folder
-      - name: Publish .NET Core Project
-        run: dotnet publish ./Portfolio/Portfolio/Portfolio.csproj -c:Release -p:GHPages=true -o out/Portfolio --nologo
-
+      - name: Install dependencies
+        run: dotnet restore ./Portfolio/Portfolio.csproj
+      - name: Publish csproj
+        run: dotnet publish ./Portfolio/Portfolio.csproj -c:Release -p:GHPages=true -o out/Portfolio --nologo --no-restore
       - name: Commit wwwroot to GitHub Pages
         uses: JamesIves/github-pages-deploy-action@v4
         with:
