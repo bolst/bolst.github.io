@@ -80,11 +80,11 @@ else
 
     private readonly IEnumerable<Models.Project> _projects =
     [
-        new("Bolton Cup", "Website, scoresheet app, and draft app for the annual Bolton Cup hockey tournament involving 6 teams, nearly 100 players, and $1000+ worth of prizes")
+        new("Bolton Cup", "Website, scoresheet app, and draft app for the annual Bolton Cup hockey tournament")
         {
             Url = "https://boltoncup.ca",
             RepoUrl = "https://github.com/bolst/BoltonCup",
-            ImageUrl = "https://iiedqecnfyojvubvugmy.supabase.co/storage/v1/object/public/images/web-home.jpg",
+            ImageUrl = "https://boltoncup.ca/_content/BoltonCup.Common/images/boltoncup.png",
             ImageOffsetY = "25%",
             TechStack = [Techs.Blazor, Techs.Postgres, Techs.Stripe, Techs.N8N, Techs.Docker]
         },
@@ -104,7 +104,7 @@ else
         },
         new("Exo Explorer", "Submission for 2024 NASA Space Apps Challenge")
         {
-            Url = "https://bolst.github.io/ExoExplorer/",
+            Url = "https://nicbolton.ca/exo-explorer/",
             RepoUrl = "https://github.com/bolst/exo-explorer",
             ImageUrl = "https://news.stanford.edu/__data/assets/image/0033/86955/Exoplanets.jpeg",
             TechStack = [Techs.ThreeJS]
