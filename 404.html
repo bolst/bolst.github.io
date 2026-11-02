@@ -1,20 +1,30 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 <head>
-    <meta charset="utf-8">
-    <title>NB Portfolio Redirect</title>
-    <script type="text/javascript">
-        // https://github.com/rafgraph/spa-github-pages
-        var l = window.location;
-        l.replace(
-            l.protocol + '//' + l.hostname + (l.port ? ':' + l.port : '') +
-            l.pathname.split('/').slice(0, 1).join('/') + '/?/' +
-            l.pathname.slice(1).split('/').slice(0).join('/').replace(/&/g, '~and~') +
-            (l.search ? '&' + l.search.slice(1).replace(/&/g, '~and~') : '') +
-            l.hash
-        );
-    </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Page not found · Nic Bolton</title>
+<meta name="color-scheme" content="light dark">
+<meta name="robots" content="noindex">
+<link rel="icon" href="/assets/avatar.jpg" type="image/jpeg">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
+
+<header class="header">
+  <div class="wrap">
+    <a class="brand" href="/"><img class="mark" src="/assets/avatar.jpg" alt="" width="30" height="30"><span class="site">nicbolton.ca</span></a>
+    <span class="spacer"></span>
+    <a class="btn primary" href="/docs/cv.pdf" aria-label="CV (PDF)">CV <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1.75C2 .78 2.78 0 3.75 0h6.59c.46 0 .9.18 1.23.51l2.92 2.92c.33.33.51.77.51 1.23v9.59A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .14.11.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.06V4.25c0 .14.11.25.25.25h2.69Z"/></svg></a>
+  </div>
+</header>
+
+<main class="narrow">
+  <h1>Page not found</h1>
+  <p>That page doesn't exist. It may have moved when this site was rebuilt.</p>
+  <p><a href="/">Go to the projects page</a></p>
+</main>
+
+<footer class="footer"><div class="wrap"><span>© 2026 Nic Bolton</span><a href="mailto:nic@cs.toronto.edu">nic@cs.toronto.edu</a></div></footer>
 </body>
 </html>
