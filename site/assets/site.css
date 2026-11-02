@@ -33,11 +33,15 @@ svg.i { width: 16px; height: 16px; fill: currentColor; flex: none; vertical-alig
 .header { border-bottom: 1px solid var(--border); background: var(--subtle); }
 .header .wrap { height: 60px; display: flex; align-items: center; gap: 12px; }
 .mark { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex: none; display: block; }
+.brand { display: inline-flex; align-items: center; gap: 12px; color: var(--fg); }
+.brand:hover { text-decoration: none; }
+.brand:hover .site { text-decoration: underline; }
 .site { font: 600 15px/1 var(--display); color: var(--fg); }
 .spacer { flex: 1; }
 .btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--fg); font: 500 13px/1 var(--sans); white-space: nowrap; }
 .btn:hover { text-decoration: none; border-color: var(--muted); background: var(--subtle); }
 .btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.btn.primary:hover { background: color-mix(in srgb, var(--fg) 82%, var(--bg)); border-color: color-mix(in srgb, var(--fg) 82%, var(--bg)); }
 
 /* Page grid */
 main.page { flex: 1; display: grid; grid-template-columns: 260px minmax(0, 1fr); grid-template-areas: "who projects" "stack projects"; grid-template-rows: auto 1fr; column-gap: 40px; align-items: start; align-content: start; padding-block: 32px 56px; }

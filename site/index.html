@@ -7,18 +7,21 @@
 <meta name="description" content="Nic Bolton, software developer in Toronto: projects in C#, Python and more. Data platform at Geotab, MSc Applied Computing at the University of Toronto, founder of the Bolton Cup.">
 <meta name="color-scheme" content="light dark">
 <link rel="canonical" href="https://nicbolton.ca/">
-<link rel="preload" href="assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/bricolage-latin.woff2" as="font" type="font/woff2" crossorigin>
 <script>
   // Old links (including the CV) point at /?project=eds; send them to the demo page.
   if (new URLSearchParams(location.search).get("project") === "eds") location.replace("/projects/eds/");
 </script>
-<link rel="icon" href="assets/avatar.jpg" type="image/jpeg">
+<link rel="icon" href="/assets/avatar.jpg" type="image/jpeg">
 <meta property="og:title" content="Nic Bolton · Software developer">
 <meta property="og:description" content="Backend and data systems in C#. Projects, research and the Bolton Cup.">
-<meta property="og:image" content="https://nicbolton.ca/assets/avatar.jpg">
-<meta property="og:type" content="profile">
+<meta property="og:image" content="https://nicbolton.ca/assets/og.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://nicbolton.ca/">
-<link rel="stylesheet" href="assets/site.css">
+<meta name="twitter:card" content="summary_large_image">
+<meta property="og:type" content="profile">
+<link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
 
@@ -34,17 +37,16 @@
 
 <header class="header">
   <div class="wrap">
-    <img class="mark" src="assets/avatar.jpg" alt="" width="30" height="30">
-    <span class="site">nicbolton.ca</span>
+    <a class="brand" href="/"><img class="mark" src="/assets/avatar.jpg" alt="" width="30" height="30"><span class="site">nicbolton.ca</span></a>
     <span class="spacer"></span>
-    <a class="btn primary" href="docs/cv.pdf" aria-label="CV (PDF)">CV <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1.75C2 .78 2.78 0 3.75 0h6.59c.46 0 .9.18 1.23.51l2.92 2.92c.33.33.51.77.51 1.23v9.59A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .14.11.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.06V4.25c0 .14.11.25.25.25h2.69Z"/></svg></a>
+    <a class="btn primary" href="/docs/cv.pdf" aria-label="CV (PDF)">CV <svg class="i" viewBox="0 0 16 16" aria-hidden="true"><path d="M2 1.75C2 .78 2.78 0 3.75 0h6.59c.46 0 .9.18 1.23.51l2.92 2.92c.33.33.51.77.51 1.23v9.59A1.75 1.75 0 0 1 13.25 16h-9.5A1.75 1.75 0 0 1 2 14.25Zm1.75-.25a.25.25 0 0 0-.25.25v12.5c0 .14.11.25.25.25h9.5a.25.25 0 0 0 .25-.25V6h-2.75A1.75 1.75 0 0 1 9 4.25V1.5Zm6.75.06V4.25c0 .14.11.25.25.25h2.69Z"/></svg></a>
   </div>
 </header>
 
 <main class="page wrap">
   <div class="who">
     <div class="who-row">
-      <img class="avatar" src="assets/avatar.jpg" alt="" width="200" height="200">
+      <img class="avatar" src="/assets/avatar.jpg" alt="" width="200" height="200">
       <div>
         <h1>Nic Bolton</h1>
         <p class="role">Software developer</p>
@@ -82,7 +84,7 @@
         </li>
         <li class="repo">
           <div class="repo-head"><h3>Emergency Dispatch Simulator</h3><span class="label">Team of 4</span></div>
-          <div class="act"><a class="btn" href="projects/eds/" aria-label="Demo video of Emergency Dispatch Simulator">Demo video</a><a class="btn" href="https://github.com/RishiDinesh/emergency-dispatch-simulator" aria-label="Source for Emergency Dispatch Simulator">Source</a></div>
+          <div class="act"><a class="btn" href="/projects/eds/" aria-label="Demo video of Emergency Dispatch Simulator">Demo video</a><a class="btn" href="https://github.com/RishiDinesh/emergency-dispatch-simulator" aria-label="Source for Emergency Dispatch Simulator">Source</a></div>
           <div class="body">
             <p>Training platform for 911 operators: live, two-way voice calls with AI callers over WebSockets, then a review scored from the transcript.</p>
             <div class="outcome">Top 6 of 80+ teams at the Higgs Hackathon</div>

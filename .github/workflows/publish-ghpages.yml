@@ -1,6 +1,5 @@
 name: Publish to GH Pages
 
-# The site is plain HTML in site/; this copies it to the build branch that GitHub Pages serves.
 on:
   push:
     branches:
