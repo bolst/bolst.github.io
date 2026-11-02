@@ -1,0 +1,113 @@
+@font-face { font-family: "Bricolage Grotesque"; src: url("fonts/bricolage-latin.woff2") format("woff2"); font-weight: 600 700; font-display: swap; }
+@font-face { font-family: "Bricolage Fallback"; src: local("Arial"); size-adjust: 104%; ascent-override: 92%; descent-override: 26%; }
+/* Shared styles for nicbolton.ca.
+   Layout: a profile page. Left column: identity, contact, then tech stack. Right column: the project list under a tab-style heading. Source order is the phone order (who, projects, stack); desktop places columns with grid areas. Palette comes from the sunset avatar: dusk violet links, ember accent. */
+:root {
+  --bg: #ffffff;
+  --subtle: #f7f5fa;
+  --fg: #1d1a24;
+  --muted: #5f5a6b;
+  --border: #e3dfea;
+  --link: #5b3fd1;
+  --accent: #c4471b;
+  --live: #116329;
+  --live-soft: #e6f4ea;
+  --chip: #f1eef6;
+  --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+  --display: "Bricolage Grotesque", "Bricolage Fallback", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark) { :root {
+  --bg: #0e0e0f; --subtle: #18181a; --fg: #f2eff8; --muted: #a49eb3; --border: #2b2b2e; --link: #b39dff;
+  --accent: #ff8a5c; --live: #57d17a; --live-soft: #15301f; --chip: #242427; color-scheme: dark; } }
+
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100dvh; display: flex; flex-direction: column; background: var(--bg); color: var(--fg); font: 400 15px/1.55 var(--sans); }
+a { color: var(--link); text-decoration: none; }
+a:hover { text-decoration: underline; }
+:focus-visible { outline: 2px solid var(--link); outline-offset: 2px; border-radius: 6px; }
+svg.i { width: 16px; height: 16px; fill: currentColor; flex: none; vertical-align: text-bottom; }
+.sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0; }
+.wrap { width: 100%; max-width: 1200px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+
+/* Header */
+.header { border-bottom: 1px solid var(--border); background: var(--subtle); }
+.header .wrap { height: 60px; display: flex; align-items: center; gap: 12px; }
+.mark { width: 30px; height: 30px; border-radius: 50%; object-fit: cover; flex: none; display: block; }
+.site { font: 600 15px/1 var(--display); color: var(--fg); }
+.spacer { flex: 1; }
+.btn { display: inline-flex; align-items: center; justify-content: center; gap: 6px; height: 32px; padding: 0 12px; border: 1px solid var(--border); border-radius: 6px; background: var(--bg); color: var(--fg); font: 500 13px/1 var(--sans); white-space: nowrap; }
+.btn:hover { text-decoration: none; border-color: var(--muted); background: var(--subtle); }
+.btn.primary { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+
+/* Page grid */
+main.page { flex: 1; display: grid; grid-template-columns: 260px minmax(0, 1fr); grid-template-areas: "who projects" "stack projects"; grid-template-rows: auto 1fr; column-gap: 40px; align-items: start; align-content: start; padding-block: 32px 56px; }
+.who { grid-area: who; display: flex; flex-direction: column; gap: 14px; min-width: 0; }
+.projects { grid-area: projects; min-width: 0; }
+
+.avatar { width: 200px; height: 200px; border-radius: 50%; padding: 4px; background: linear-gradient(160deg, var(--link), var(--accent)); display: block; object-fit: cover; }
+.who-row { display: flex; flex-direction: column; gap: 16px; }
+.who h1 { margin: 0; font: 700 30px/1.15 var(--display); letter-spacing: -0.01em; }
+.role { margin: 4px 0 0; color: var(--muted); font-size: 15px; }
+.bio { margin: 0; font-size: 15px; text-wrap: pretty; max-width: 68ch; }
+.facts { list-style: none; margin: 0; padding: 14px 0 0; display: flex; flex-direction: column; gap: 7px; border-top: 1px solid var(--border); }
+.facts li { display: flex; gap: 8px; align-items: center; min-width: 0; font-size: 14px; }
+.facts li > span, .facts li > a { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.facts li > svg { color: var(--muted); }
+
+/* Tech stack */
+.stack { grid-area: stack; min-width: 0; margin-top: 22px; padding-top: 16px; border-top: 1px solid var(--border); }
+.stack h2 { margin: 0 0 12px; font: 600 15px/1.2 var(--display); }
+.stack dl { margin: 0; display: flex; flex-direction: column; gap: 12px; }
+.stack dt { font-size: 12px; font-weight: 600; color: var(--muted); text-transform: uppercase; letter-spacing: .05em; margin-bottom: 6px; }
+.stack dd { margin: 0; }
+.stack ul { list-style: none; margin: 0; padding: 0; display: flex; flex-wrap: wrap; gap: 6px; }
+
+/* Section heading, styled like a selected tab */
+.section-bar { border-bottom: 1px solid var(--border); }
+.section-bar h2 { display: inline-flex; align-items: center; gap: 8px; margin: 0 0 -1px; padding: 0 10px; height: 46px; font: 600 15px/1 var(--sans); color: var(--fg); border-bottom: 2px solid transparent; border-image: linear-gradient(90deg, var(--link), var(--accent)) 1; }
+.section-bar h2 svg { color: var(--muted); }
+.count { background: var(--chip); color: var(--fg); border-radius: 20px; padding: 0 7px; font-size: 12px; line-height: 18px; font-weight: 600; }
+
+/* Projects */
+.repos { list-style: none; margin: 0; padding: 0; }
+.repo { padding: 18px 0; border-bottom: 1px solid var(--border); display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 6px 20px; }
+.repo:last-child { border-bottom: 0; }
+.repo-head { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; min-width: 0; }
+.repo h3 { margin: 0; font: 600 20px/1.25 var(--display); letter-spacing: -0.005em; }
+.label { border: 1px solid var(--border); color: var(--muted); border-radius: 20px; padding: 0 8px; font-size: 12px; line-height: 20px; font-weight: 500; white-space: nowrap; }
+.label.live { color: var(--live); background: var(--live-soft); border-color: transparent; }
+.act { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 8px; align-items: center; grid-row: 1; grid-column: 2; }
+.repo .body { grid-column: 1 / -1; display: flex; flex-direction: column; gap: 8px; }
+.repo p { margin: 0; color: var(--muted); max-width: 78ch; }
+.outcome { font-weight: 600; font-size: 14px; }
+.outcome::before { content: ""; display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--accent); margin-right: 8px; vertical-align: 2px; }
+.topics { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+.chip { font: 500 12px/1 var(--sans); padding: 5px 9px; border-radius: 20px; background: var(--chip); color: var(--fg); }
+.lang { font-size: 12.5px; font-weight: 600; color: var(--fg); margin-right: 4px; padding-right: 10px; border-right: 1px solid var(--border); }
+
+
+.footer { border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+.footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px; padding-block: 20px; }
+
+@media (max-width: 860px) {
+  main.page { grid-template-columns: minmax(0, 1fr); grid-template-areas: "who" "projects" "stack"; grid-template-rows: none; padding-top: 20px; }
+  .who { margin-bottom: 20px; }
+  .stack { margin-top: 32px; }
+  .mark { display: none; }
+  .who-row { flex-direction: row; align-items: center; }
+  .avatar { width: 72px; height: 72px; padding: 3px; }
+  .facts { flex-direction: row; flex-wrap: wrap; gap: 6px 18px; }
+}
+@media (max-width: 560px) {
+  .repo { grid-template-columns: minmax(0, 1fr); }
+  .act { grid-row: auto; grid-column: 1; order: 3; justify-content: flex-start; }
+  .repo .body { order: 2; }
+}
+
+/* Single-column pages: project demo and 404 */
+.narrow { flex: 1; width: 100%; max-width: 880px; margin: 0 auto; padding: 32px max(16px, env(safe-area-inset-right, 0px)) 56px max(16px, env(safe-area-inset-left, 0px)); display: flex; flex-direction: column; gap: 16px; }
+.back { font-size: 14px; }
+.narrow h1 { margin: 0; font: 700 30px/1.15 var(--display); letter-spacing: -0.01em; }
+.narrow p { margin: 0; color: var(--muted); max-width: 70ch; }
+.video { position: relative; aspect-ratio: 16 / 9; border: 1px solid var(--border); border-radius: 6px; overflow: hidden; background: var(--subtle); }
+.video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
